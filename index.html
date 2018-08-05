@@ -68,7 +68,7 @@
     </header>
 
     <div class="overlay setup hidden">
-        <form name ="wizard-form" class="setup-wizard-form" method="post" enctype="multipart/form-data" action="https://js.dump.academy/code-and-magick" autocomplete="off">
+        <form name ="wizardForm" class="setup-wizard-form" method="post" enctype="multipart/form-data" action="https://js.dump.academy/code-and-magick" autocomplete="off">
 
             <div class="setup-title">
                 <div class="setup-user">
@@ -78,13 +78,13 @@
                     </div>
                     <label>
           <input type="text" name="username"
-                  minlength="2" 
+                  minlength="2"
                  maxlength="25" required
                  class="setup-user-name" value="Синий Пендальф"/>
         </label>
                 </div>
 
-                <span class="setup-close">&times;</span>
+                <span class="setup-close" tabindex="0">&times;</span>
             </div>
 
 
@@ -181,11 +181,20 @@
   </div>
 </template>
 
+
+
+
+<script src="js/game.js"></script>
+
 <script src="js/stat.js"></script>
+
+<script src="js/interact.js"></script>
 
 <script src="js/setup.js"></script>
 
-<script src="js/game.js"></script>
+<script src="js/dialog.js"></script>
+
+
 
 </body>
 
