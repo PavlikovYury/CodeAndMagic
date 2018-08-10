@@ -17,7 +17,6 @@
   var similarWizardTemplate = document.querySelector('#similar-wizard-template').content.querySelector('.setup-similar-item');
 
 
-
   var makeWizardsObjects = function () {
     var wizards = [];
     for (var i = 0; i < 4; i++) {
@@ -51,10 +50,10 @@
 
   window.dialog.querySelector('.setup-similar').classList.remove('hidden');
 
-  var form = dialog.querySelector('.setup-wizard-form');
+  var form = window.dialog.querySelector('.setup-wizard-form');
   form.addEventListener('submit', function (evt) {
-    window.backend.save(new FormData(form), function (response) {
-      dialog.classList.add('hidden');
+    window.backend.save(new FormData(form), function () {
+      window.dialog.classList.add('hidden');
     });
     evt.preventDefault();
   });
