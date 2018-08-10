@@ -16,7 +16,7 @@
 
   var similarWizardTemplate = document.querySelector('#similar-wizard-template').content.querySelector('.setup-similar-item');
 
-  window.dialog.querySelector('.setup-similar').classList.remove('hidden');
+
 
   var makeWizardsObjects = function () {
     var wizards = [];
@@ -48,5 +48,15 @@
     fragment.appendChild(renderWizard(wizardsArray[i]));
   }
   similarListElement.appendChild(fragment);
+
+  window.dialog.querySelector('.setup-similar').classList.remove('hidden');
+
+  var form = dialog.querySelector('.setup-wizard-form');
+  form.addEventListener('submit', function (evt) {
+    window.backend.save(new FormData(form), function (response) {
+      dialog.classList.add('hidden');
+    });
+    evt.preventDefault();
+  });
 
 })();
