@@ -54,6 +54,9 @@
   form.addEventListener('submit', function (evt) {
     window.backend.save(new FormData(form), function () {
       window.dialog.classList.add('hidden');
+    }, function (message) {
+      var alert = message;
+      alert();
     });
     evt.preventDefault();
   });
