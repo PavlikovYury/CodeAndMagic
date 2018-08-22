@@ -36,19 +36,22 @@
     var wizardElement = similarWizardTemplate.cloneNode(true);
 
     wizardElement.querySelector('.setup-similar-label').textContent = wizard.name;
-    wizardElement.querySelector('.wizard-coat').style.fill = wizard.coatColor;
-    wizardElement.querySelector('.wizard-eyes').style.fill = wizard.eyesColor;
+    wizardElement.querySelector('.wizard-coat').style.fill = wizard.colorCoat;
+    wizardElement.querySelector('.wizard-eyes').style.fill = wizard.colorEyes;
 
     return wizardElement;
   };
 
-  var fragment = document.createDocumentFragment();
-  for (var i = 0; i < wizardsArray.length; i++) {
-    fragment.appendChild(renderWizard(wizardsArray[i]));
-  }
-  similarListElement.appendChild(fragment);
+  window.backend.load(function (wizards) {
+    var fragment = document.createDocumentFragment();
 
-  window.dialog.querySelector('.setup-similar').classList.remove('hidden');
+    for (var i = 0; i < 4; i++) {
+      fragment.appendChild(renderWizard(wizards[i]));
+    }
+    similarListElement.appendChild(fragment);
+
+    window.dialog.querySelector('.setup-similar').classList.remove('hidden');
+  });
 
   var form = window.dialog.querySelector('.setup-wizard-form');
   form.addEventListener('submit', function (evt) {

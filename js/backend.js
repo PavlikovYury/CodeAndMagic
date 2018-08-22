@@ -28,7 +28,8 @@
       xhr.responseType = 'json';
 
       xhr.addEventListener('load', function () {
-        onLoad();
+        onLoad(xhr.response);
+        console.log(xhr.response);
       });
       xhr.addEventListener('error', function () {
         onError('Произошла ошибка');
@@ -37,7 +38,7 @@
         onError('Запрос не успел выполниться за ' + xhr.timeout + 'мс');
       });
 
-      xhr.timeout = 1000;
+      xhr.timeout = 10000;
       xhr.open('GET', URLLoad);
       xhr.send();
 
