@@ -51,6 +51,8 @@
     similarListElement.appendChild(fragment);
 
     window.dialog.querySelector('.setup-similar').classList.remove('hidden');
+  }, function (message) {
+    console.log(message);
   });
 
   var form = window.dialog.querySelector('.setup-wizard-form');
